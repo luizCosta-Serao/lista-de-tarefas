@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path")
-
+const cors = require("cors")
 
 const checklistRouter = require("./src/routes/checklist")
 const taskRouter = require("./src/routes/task")
@@ -11,6 +11,7 @@ require("./config/database")
 const methodOverride = require("method-override");
 const { checklistDependent } = require("./src/routes/task");
 
+app.use(cors())
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
